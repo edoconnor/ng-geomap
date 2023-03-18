@@ -24,12 +24,17 @@ export class GeomapComponent implements OnInit {
     );
   }
 
+  markerIcon = L.icon({
+    iconUrl: 'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><text x="50%" y="80%" text-anchor="middle" font-size="36px">📍</text></svg>',
+    iconSize: [48, 48]
+  });
+
   initMap(latLng: L.LatLng) {
     const map = L.map('map').setView(latLng, 18);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
-    const marker = L.marker(latLng).addTo(map);
+    const marker = L.marker(latLng, { icon: this.markerIcon }).addTo(map);
   }
 
   getPosition(): Observable<{ latitude: number; longitude: number }> {

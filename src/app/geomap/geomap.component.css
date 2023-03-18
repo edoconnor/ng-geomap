@@ -1,6 +1,1 @@
-@media (max-width: 400px) {
-    #map {
-      height: 100vh; 
-      width: 100vw;  
-    }
-  }
+@import '~leaflet/dist/leaflet.css';
