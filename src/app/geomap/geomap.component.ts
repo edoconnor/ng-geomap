@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LocationService } from '../location.service';
 import { map } from 'rxjs/operators';
 import 'leaflet/dist/leaflet.css';
 import * as L from 'leaflet';
@@ -10,7 +11,7 @@ import * as L from 'leaflet';
   styleUrls: ['./geomap.component.css'],
 })
 export class GeomapComponent implements OnInit {
-  constructor() {}
+  constructor(private locationService: LocationService) {}
 
   ngOnInit() {
     this.getPosition().subscribe(
@@ -38,11 +39,14 @@ export class GeomapComponent implements OnInit {
   }
 
   getPosition(): Observable<{ latitude: number; longitude: number }> {
-    return new Observable<GeolocationPosition>((observer) => {
+    return new Observable<{ latitude: number; longitude: number }>((observer) => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            observer.next(position);
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            this.locationService.setPosition({ latitude, longitude });
+            observer.next({ latitude, longitude });
             observer.complete();
           },
           (error) => {
@@ -52,13 +56,6 @@ export class GeomapComponent implements OnInit {
       } else {
         observer.error('Geolocation is not supported by this browser.');
       }
-    }).pipe(
-      map((position: GeolocationPosition) => {
-        return {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        };
-      })
-    );
+    });
   }
 }

@@ -1,5 +1,10 @@
-<nav class="navbar navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">::::</a>
+<footer>
+  <div class="data-container">
+    <div class="data">
+      Latitude: {{ currentPosition.latitude | number : "1.2-2" }}
     </div>
-  </nav>
+    <div class="data">
+      Longitude: {{ currentPosition.longitude | number : "1.2-2" }}
+    </div>
+  </div>
+</footer>
