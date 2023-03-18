@@ -25,8 +25,8 @@ export class GeomapComponent implements OnInit {
   }
 
  markerIcon = L.icon({
-    iconUrl: '/assets/marker.png',
-    iconSize: [24, 48]
+    iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Emoji_u2665.svg',
+    iconSize: [48, 48]
   });
 
   initMap(latLng: L.LatLng) {
