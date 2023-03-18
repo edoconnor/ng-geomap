@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import 'leaflet/dist/leaflet.css';
 import * as L from 'leaflet';
 
 @Component({
