@@ -24,9 +24,9 @@ export class GeomapComponent implements OnInit {
     );
   }
 
-  markerIcon = L.icon({
-    iconUrl: 'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><text x="50%" y="80%" text-anchor="middle" font-size="36px">📍</text></svg>',
-    iconSize: [48, 48]
+ markerIcon = L.icon({
+    iconUrl: '/assets/marker.png',
+    iconSize: [24, 48]
   });
 
   initMap(latLng: L.LatLng) {
