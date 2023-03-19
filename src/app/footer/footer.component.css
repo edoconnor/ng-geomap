@@ -4,6 +4,7 @@ footer {
   height: 60px;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .data-container {
@@ -14,12 +15,7 @@ footer {
 }
 
 .data {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.25rem;  
+  font-family: "Outfit", sans-serif;
+  font-size: 1.25rem;
   color: #fff;
 }
-
-
-
-
-
